@@ -1,5 +1,8 @@
 package wangmj.thread.chapter_1;
 
+/**
+ * 继承Thread的使用
+ */
 public class MyThread1 extends Thread{
 
     @Override
