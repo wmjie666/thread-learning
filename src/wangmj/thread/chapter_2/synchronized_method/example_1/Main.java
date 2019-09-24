@@ -1,4 +1,4 @@
-package wangmj.thread.chapter_2.example_1;
+package wangmj.thread.chapter_2.synchronized_method.example_1;
 
 /**
  * 方法内的变量都是线程安全的,因为这些变量都是私有的

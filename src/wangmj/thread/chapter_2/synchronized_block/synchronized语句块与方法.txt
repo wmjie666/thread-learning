@@ -1,0 +1,4 @@
+synchronized方法在某些情况下有弊端（example_1）：
+    比如线程A调用同步方法执行一个长时间的任务，那么线程B就需要等待较长的时间
+synchronized同步语句块可以解决上面synchronized方法的弊端(example_3)
+

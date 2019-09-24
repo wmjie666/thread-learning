@@ -1,4 +1,4 @@
-package wangmj.thread.chapter_2.example_1;
+package wangmj.thread.chapter_2.synchronized_method.example_1;
 
 /**
  * 测试synchronized同步方法
