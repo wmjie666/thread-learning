@@ -1,0 +1,17 @@
+
+定时器Timer类主要负责计划任务的功能，也就是在指定时间开始执行某一个任务。即计划一个任务在何时执行。
+而任务又是由TimerTask类封装的，TimerTask是一个抽象类，且实现了Runnable接口，所以Timer执行一个TimerTask任务，就是新开启一个线程
+
+
+schedule(TimerTask task, long delay): 以执行schedule(TimerTask task, long delay)方法当前的时间为参考时间，在此时间基础上延迟指定的毫秒数后执行一次TimerTask任务
+
+schedule(TimerTask task, long delay, long period): 以执行schedule(TimerTask task, long delay， long period)方法当前的时间为参考时间，在此时间基础上延迟指定毫秒数，再以某一间隔时间无限次的执行某一任务
+
+schedule()方法对应的还有scheduleAtFixedRate()方法,二者介绍：
+1、方法schedule和方法scheduleAtFixedRate都会按顺序执行，所以不要考虑非线程安全的情况
+2、方法schedule和方法scheduleAtFixedRate主要的区别只在于不延时的情况
+3、使用schedule方法：如果执行任务的时间没有被延时，那么下一次任务的执行时间参考的是上一次任务的“开始”时间来计算
+4、使用scheduleAtFixedRate方法：如果执行任务的时间没有被延时，那么下一次任务的执行时间参考的是上一次任务的“结束”时间来计算
+5、延时的情况则两者没有区别，下一次任务的执行时间参考的都是上一次任务的“结束”时间来计算
+6、schedule方法的不具有追赶执行性，也即如果一个任务执行时长大于循环执行的周期，则任务执行过程中错过的循环周期，将不追加执行这些次数的任务
+7、scheduleAtFixedRate方法具有追赶执行性，也即如果一个任务执行时长大于循环执行的周期，则任务执行过程中错过的循环周期，会追补执行这些次数的任务
